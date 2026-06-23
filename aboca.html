@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aboca - Sostenibilità</title>
+
+<!--Importazione Font e collegamento al file CSS-->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Fraunces:opsz,wght@9..144,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+  <body>
+
+<!--Header con logo azienda e menu-->
+  <header>
+    <a href="#"> <img src="logo.png" alt="Logo Aboca" class="logo-azienda">
+    </a> <nav>
+      <ul>
+        <li><a href="#home">Home</a></li> <!--Permettono di andare direttamente a sezioni interne della pagina-->
+        <li><a href="#chisiamo">Chi siamo</a></li>
+        <li><a href="#Il nostro modo di coltivare">Il nostro modo di coltivare</a></li>
+        <li><a href="#Il nostro impegno">Il nostro impegno</a></li>
+        <li><a href="#report">Report</a></li>
+      </ul>
+    </nav>
+  <button id="theme-toggle" class="theme-btn" title="Cambia modalità luce/dark">
+  <span class="icon">🌙</span>
+</button>
+  </header>
+  
+  <main>
+
+<!--Divisione delle varie sezioni-->
+      <div class="hero-banner">
+      </div>
+    <div class="contenitore-testo"> <!--Permette di avere uno sfondo diverso dietro il testo-->
+  <section id="home">
+    <h2>Benvenuti in Aboca</h2>
+    <p>Aboca è un azienda agricola immersa nelle colline toscane impegnata nella valorizzazione del territorio e nella sostenibilità ambientale, unendo il sapere di generazioni in generazioni.
+
+    Per saperne di più, visita il nostro
+    <a href="https://www.aboca.com/it/" target="_blank" style="color: inherit;">sito web ufficiale Aboca</a>
+    </p>
+  </section>
+    </div>
+
+    <div class="contenitore-testo">
+  <section id="chisiamo">
+    <h2>Chi siamo</h2>
+    <p>Noi di Aboca da oltre 40 anni guardiamo alla salute in modo innovativo mediante una coltivazione 100% biologica e biodegradabile, al fine di ottenere dalle piante, senza l'utilizzo di sostanze artificiali, complessi molecolari naturali che sono alla base dei nostri prodotti</p>
+    <p>Il nostro impegno si fonda sull'innovazione costante e sull'impegno di tecnologie all'avanguardia. Non siamo semplici produttori, ma custodi del territorio e promotori di una filiera  corta totalmente sostenibile, garantendo eccelleza qualitativa</p>
+  </section>
+    </div>
+    <div class="contenitore-testo">
+  <section id="Il nostro modo di coltivare">
+    <h2>Il nostro modo di coltivare</h2>
+    <p>Aboca coltiva oltre 90 specie vegetali, tra piante medicinali, foraggere, colture intercalari e cover crops (Culture da rovescio per incrementare naturalmente la fertilità del suolo). Insieme a queste pratiche si affiancano la conservazione della flora spontanea nelle aree coltivate, la gestione meccanica delle infestanti, la presenza di fasce di vegetazione naturale e lavorazioni superficiali del terreno, fondamentali per preservare la biodiversità del suolo. Le nostre coltivazioni biologiche infatti, si estendono su oltre 1700 ettari basato principalmente su un modello agricolo orientato alla complessità e alla resilienza </p>
+  </section>
+    </div>
+    <div class="contenitore-testo"> 
+  <section id="Il nostro impegno">
+    <h2>Il nostro impegno</h2>
+    <p>In un momento in cui la parola “sostenibilità” rischia di essere banalizzata, diventa fondamentale progettare il futuro con modelli e scelte che lo siano realmente, oggi ancora più consapevoli che non esiste un bene individuale separato dal bene comune.
+Siamo fermamente convinti che la nostra salute sia strettamente connessa alla salute del Pianeta e delle diverse forme di vita che lo abitano. Per questo ogni giorno mettiamo in campo azioni concrete per proteggere, ripristinare e rigenerare la biodiversità degli ecosistemi in cui operiamo. Un impegno che descriviamo all’interno della nostra Strategia di biodiversità.</p>
+<!--Sezione per scaricare il "report di sostenibilità"-->
+ <div class="contenitore-testo"> 
+  <section id="report">
+    <h2>Scarica il report di Sostenibilità del 2025 per conoscere il nostro impegno per un futuro totalmente Green</h2>
+    <a href="https://doc.gruppoaboca.com/aboca/aboca/italia/relazione-dimpatto-2026/" class="download-button" download="Report-Sostenibilita-Aboca.pdf">Scarica il Report</a>
+  </section></div>
+
+  </main>
+   <!--Footer-->
+  <footer>
+    ©2026 Aboca
+  </footer>
+
+  </body>
+
+  <script>
+// Inserisco Javascript per scegliere tra modalità chiara e scura
+  const btn = document.getElementById("theme-toggle");
+  const body = document.body;
+  const icon = btn.querySelector(".icon");
+  
+// Al caricamento della pagina, controllo se l'utente aveva già scelto il tema scuro
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-mode");
+    updateIcon(); // Aggiorno l'icona subito se è scuro
+  }
+
+// Aggiorna l'icona in base alla modalità scelta
+  function updateIcon() {
+    if (body.classList.contains("dark-mode")) {
+      icon.textContent = "☀️";
+    } else {
+      icon.textContent = "🌙";
+    }
+  }
+
+// Gestione del click sul pulsante
+  btn.onclick = () => {
+    body.classList.toggle("dark-mode");
+
+// Salvo la scelta nel localStorage del browser così non si perde al refresh
+  if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+    updateIcon();
+  };
+</script>
+
+</html>
