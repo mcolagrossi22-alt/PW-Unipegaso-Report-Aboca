@@ -1,0 +1,255 @@
+ Stabilità stile pagina su mobile */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Palette colori modalità chiara */
+:root {
+  --principale: #ffffff;
+  --titoli: #007549;
+  --testo: #000000;
+  --sfondo: #007549;
+  --sfondo-contenitore: #ffffff;
+ }
+
+/* Palette colori modalità scura */
+body.dark-mode {
+  --principale: #831212;
+  --titoli: #007549 ;
+  --testo:#ffffff  ;
+  --sfondo: #000000;
+  --sfondo-contenitore: #2c2c2c;
+ }
+
+/* Combinazione per l'animazione del logo e traslazione per il centraggio visivo */
+@keyframes pulse {
+  0% { 
+        transform: scale(1) translateX(-5%);
+    } 
+  50% { 
+        transform: scale(1.02) translateX(-5%);
+    } 
+  100% { 
+        transform: scale(1) translateX(-5%);
+    }
+}
+
+/* Header + Logo azienda */
+header {
+  background-color: var(--sfondo);
+  text-align: center;
+  color: rgb(255, 255, 255);
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+
+  /* Header fisso e compatto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+/* Stile per tutti i paragrafi e il testo generale */
+body {
+  font-family: "Fraunces", serif;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: var(--sfondo);
+  color: var(--testo);
+  margin: 0;
+  padding: 0;
+  line-height: 24px;
+}
+
+
+/* Quando la dark-mode è attiva, l'immagine del logo cambia colore grazie ai filtri CSS */
+body.dark-mode .logo-azienda {
+      filter: invert(1) brightness(2) sepia(2) saturate(1);
+  
+}
+
+/* Colore di sfondo del testo */
+.contenitore-testo {
+  background-color: var(--sfondo-contenitore);
+  max-width: 1000px; 
+  margin: 30px auto 30px auto;
+}
+
+.logo-azienda {
+  width: 200px;
+  display: block;
+  margin: 0 auto 8px auto;
+  animation: pulse 2s infinite alternate;
+}
+
+/* Menu */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--testo);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--titoli)
+}
+
+/* Header fisso */
+main {
+  margin-top: 0px; /* Per non coprire con l'header fisso le varie sezioni */
+}
+
+html {
+/* Assicura che i link di navigazione si fermino sotto l'header fisso quando cliccati */
+  scroll-padding-top: 190px;
+  scroll-behavior: smooth;
+}
+
+/* Stile per l'Immagine in alto a tutta larghezza */
+.hero-banner {
+  height: 250px; 
+  width: 100%;
+  background-image: url('c:\Users\colag\OneDrive\Desktop\aboca-wecanjob.png');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 150px;
+}
+
+/* Sezioni generali */
+section {
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Stile per i titoli principali h2 */
+h2 {
+  font-family: "Cinzel Decorative", serif; 
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 39px;
+  color: #ffffff(--titoli);
+  margin-bottom: 10px;
+}
+
+
+
+/* Stile sottotitoli h3 (utilizza lo stesso font e spessore dei titoli h2) */
+.card-Il nostro impegno h3 {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: normal; 
+  color: var(--titoli-card);
+  margin-top: 10px;
+
+/* Creazione di un "button" per scaricare il report */
+.download-button {
+  display: inline-block;
+  background-color: var(--titoli);
+  color: rgb(0, 0, 0);
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--titoli-card);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  background-color: var(--principale);
+  text-align: center;
+  color: white;
+  padding: 25px 10px;
+  margin-top: 30px;
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--titoli);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.712);
+}
+
+/* Responsività su mobile */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 240px;
+  }
+  header {
+    padding: 15px 10px;
+  }
+
+
+
+  .theme-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+
+  .contenitore-testo {
+    margin: 20px 10px;
+    max-width: calc(100% - 20px);
+  }
+
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    padding: 8px;
+    display: inline-block;
+  }
+
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+}
