@@ -1,0 +1,258 @@
+/* ===== RESET E BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ===== PALETTE COLORI ===== */
+:root {
+  --principale: #ffffff;
+  --titoli: #007549;
+  --testo: #000000;
+  --sfondo: #007549;
+  --sfondo-contenitore: #ffffff;
+}
+
+body.dark-mode {
+  --principale: #831212;
+  --titoli: #007549;
+  --testo: #ffffff;
+  --sfondo: #000000;
+  --sfondo-contenitore: #2c2c2c;
+}
+
+/* ===== ANIMAZIONI ===== */
+@keyframes pulse {
+  0% { transform: scale(1) translateX(-5%); }
+  50% { transform: scale(1.02) translateX(-5%); }
+  100% { transform: scale(1) translateX(-5%); }
+}
+
+/* ===== HEADER FISSO ===== */
+header {
+  background-color: var(--sfondo);
+  color: var(--principale);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+/* ===== SCROLL FLUIDO E SPAZIO PER HEADER ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Spazio per l'header fisso */
+}
+
+section {
+  scroll-margin-top: 80px; /* Spazio per l'header fisso */
+}
+
+/* ===== LOGO ===== */
+.logo-azienda {
+  width: 150px;
+  display: block;
+  margin: 0 auto 8px;
+  animation: pulse 3s infinite alternate;
+}
+
+body.dark-mode .logo-azienda {
+  filter: invert(1) brightness(2) sepia(2) saturate(1);
+}
+
+/* ===== CORPO PAGINA ===== */
+body {
+  background-color: var(--sfondo);
+  color: var(--testo);
+  padding-top: 60px; /* Spazio per l'header fisso */
+}
+
+/* ===== MENU DI NAVIGAZIONE ===== */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+nav a {
+  color: var(--testo);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--titoli);
+  background-color: rgba(0, 117, 73, 0.1);
+}
+
+/* ===== HERO BANNER ===== */
+.hero-banner {
+  height: 250px;
+  width: 100%;
+  background-image: url('https://www.aboca.com/wp-content/uploads/2023/10/https-www.aboca_.com-wp-content-uploads-2023-01-IMMAGINE-ISTITUZIONALE-HOMEPAGE.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+}
+
+/* ===== CONTENITORE TESTO ===== */
+.contenitore-testo {
+  background-color: var(--sfondo-contenitore);
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== SEZIONI GENERALI ===== */
+section {
+  padding: 30px 20px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+  line-height: 1.3;
+  color: var(--titoli);
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+  color: var(--titoli);
+  margin-top: 10px;
+}
+
+/* ===== BOTTONE DOWNLOAD ===== */
+.download-button {
+  display: inline-block;
+  background-color: var(--titoli);
+  color: rgb(0, 0, 0);
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+  margin-top: 15px;
+}
+
+.download-button:hover {
+  background-color: rgba(0, 117, 73, 0.8);
+  transform: scale(1.05);
+}
+
+/* ===== BOTTONE TEMA (LIGHT/DARK MODE) ===== */
+.theme-btn {
+  background: none;
+  border: 1px solid var(--titoli);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 1001;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--sfondo);
+  color: var(--principale);
+  margin-top: 20px;
+}
+
+/* ===== RESPONSIVITÀ MOBILE ===== */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+    scroll-padding-top: 75px;
+  }
+
+  header {
+    height: 55px;
+    padding: 0 15px;
+  }
+
+  .theme-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .contenitore-testo {
+    margin: 20px auto;
+    padding: 15px;
+    max-width: calc(100% - 30px);
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero-banner {
+    height: 200px;
+    margin-top: 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  section {
+    scroll-margin-top: 75px;
+  }
+}
