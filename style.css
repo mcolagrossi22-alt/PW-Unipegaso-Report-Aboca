@@ -130,7 +130,50 @@ nav a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+/* Personalizzazione delle card "sostenibilità" */
+.card-sostenibilita {
+  background-color: var(--sfondo-contenitore);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 6px solid var(--principale);
+  color: var(--titoli-card);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+/* Contenitore delle card "sostenibilità" */
+.pilastri-sostenibilita {
+  background-color: var(--sfondo);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+/* Posizione delle card "sostenibilità" orizzontalmente */
+.schema-sostenibilita {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 40px;
+}
+
+/* Stile per le liste nelle card "sostenibilità" */
+.card-sostenibilita ul {
+  list-style: disc;
+  padding-left: 20px;
+  text-align: left;
+  margin: 10px 0 0 0;
+}
+
+.card-sostenibilita li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+#report h2 {
+  font-size: 24px;
+  line-height: 30px;
+}
 /* ===== SEZIONI GENERALI ===== */
 section {
   padding: 30px 20px;
@@ -174,6 +217,7 @@ h3 {
 
 /* ===== BOTTONE TEMA (LIGHT/DARK MODE) ===== */
 .theme-btn {
+  
   background: none;
   border: 1px solid var(--titoli);
   border-radius: 50%;
